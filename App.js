@@ -11,7 +11,7 @@ import {
 
 
 import { NavigationContainer } from '@react-navigation/native';
-import Drawer from './Drawer';
+import Drawer from './navigation/Drawer';
 
 export default class App extends React.Component {
   render() {

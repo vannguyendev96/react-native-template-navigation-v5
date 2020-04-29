@@ -7,10 +7,12 @@ import {
 } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack'
 
-import HomeScreen from './screen/Home/HomeScreen';
-import AssetManagermentScreen from './screen/AssetManagerment/AssetManagermentScreen';
+import HomeScreen from '../src/screen/Home/HomeScreen';
+
 import Animated from 'react-native-reanimated';
 import LinearGradient from 'react-native-linear-gradient';
+
+import LoginScreen from '../src/screen/Login/LoginScreen';
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -26,13 +28,13 @@ const Screens = ({ navigation, style }) => {
                         <TouchableOpacity style={styles.headerButtonContainer} onPress={() => navigation.openDrawer()}>
                             <Image
                                 style={styles.headerButtonImage}
-                                source={require('./assets/icons/menu.png')}
+                                source={require('../assets/icons/menu.png')}
                             />
                         </TouchableOpacity>
                     )
                 }}>
+                <Stack.Screen name="Login" component={LoginScreen} options={{ title: null }}/>
                 <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'Home' }}/>
-                <Stack.Screen name="AssetManagerment" component={AssetManagermentScreen} options={{ title: 'Home' }}/>
             </Stack.Navigator>
         </Animated.View>
     )
@@ -45,7 +47,7 @@ function DrawerContent(props) {
             <View>
                 <View style={{ marginTop: 10, paddingLeft: 10, justifyContent: 'center', alignItems: 'center' }}>
                     <Image
-                        source={require('./assets/imgs/profile.jpg')}
+                        source={require('../assets/imgs/profile.jpg')}
                         resizeMode='center'
                         ///style={{ flex: 1, height: 100, width: 100, borderRadius: 300 }}
                         style={styles.avatar}
@@ -58,14 +60,14 @@ function DrawerContent(props) {
                     labelStyle={styles.drawerLabel}
                     style={styles.drawerItem}
                     onPress={() => props.navigation.navigate("Home")}
-                    icon={() => <Image source={require('./assets/icons/home.png')} style={styles.btnIcon} />}
+                    icon={() => <Image source={require('../assets/icons/home.png')} style={styles.btnIcon} />}
                 />
                 <DrawerItem
                     label="Asset Managerment"
                     labelStyle={styles.drawerLabel}
                     style={styles.drawerItem}
                     onPress={() => props.navigation.navigate("AssetManagerment")}
-                    icon={() => <Image source={require('./assets/icons/category.png')} style={styles.btnIcon} />}
+                    icon={() => <Image source={require('../assets/icons/category.png')} style={styles.btnIcon} />}
                 />
             </View>
         </DrawerContentScrollView>
